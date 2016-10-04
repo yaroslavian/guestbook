@@ -1,4 +1,26 @@
 body {
+  font-family: sans-serif;
   color: #09F;
   background-color: #000;
+}
+
+#form {
+  border: 2px solid blue;
+  display: inline-block;
+  margin: auto;
+}
+
+form {}
+
+form input, form textarea {
+  margin: 10px;
+  padding: 5px;
+  color: #09F;
+  background-color: #000;
+  border: 2px solid #09f;
+}
+
+form input[type="submit"]:hover {
+  color: #FFF;
+  background-color: #09f;
 }
