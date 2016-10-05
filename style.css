@@ -4,6 +4,25 @@ body {
   background-color: #000;
 }
 
+#message-board {
+
+}
+
+#message-board .message-block {
+  width: 300px;
+  padding: 20px;
+  margin: 15px 0;
+  border: 2px dashed #09F;
+}
+
+#message-board .username {
+  margin: 10px;
+}
+
+#message-board .message-text {
+  margin: 10px;
+}
+
 #form {
   border: 2px solid blue;
   display: inline-block;
