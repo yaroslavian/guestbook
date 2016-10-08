@@ -4,7 +4,7 @@ window.onload = function(){
 					comment: document.getElementById('comment-field'),
 					submit: document.getElementById('submit-button')
 
-	}	
+	}
 
 	form.name.oninput = function(){
 
@@ -15,10 +15,16 @@ window.onload = function(){
 			this.style.borderColor = "red";
 			form.submit.disabled = true;
 		}
-	};	
+	};
 
 	form.comment.oninput = function(){
-		//validate the value
+		var text = this.value;
+
+		if(text.length > 100) {
+			console.log(text.length);
+
+			this.value = text.slice(0, -1);
+		}
 	};
 
 };
