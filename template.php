@@ -22,7 +22,7 @@
       <form action="index.php" method="get"><br />
         <input id="name-field" name="name" type="text" placeholder="User" /><br />
         <textarea id="comment-field" name="comment"></textarea><br />
-        <input id="submit-button" type="submit" />
+        <input id="submit-button" type="submit" disabled />
       </form>
     </div>
 </body>
