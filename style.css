@@ -36,10 +36,17 @@ form input, form textarea {
   padding: 5px;
   color: #09F;
   background-color: #000;
-  border: 2px solid #09f;
+  border: 2px solid #09F;
 }
 
-form input[type="submit"]:hover {
+form #submit-button:hover {
   color: #FFF;
-  background-color: #09f;
+  background-color: #09F;
 }
+
+form #submit-button[disabled] {
+	color: grey;
+	border-color: grey;
+	background-color: #000;
+}
+
