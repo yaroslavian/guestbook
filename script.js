@@ -19,12 +19,7 @@ window.onload = function(){
 
 	form.comment.oninput = function(){
 		var text = this.value;
-
-		if(text.length > 100) {
-			console.log(text.length);
-
-			this.value = text.slice(0, -1);
-		}
+		if(text.length > 100) this.value = text.slice(0, -1);
 	};
 
 };
