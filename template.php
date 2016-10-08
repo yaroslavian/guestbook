@@ -20,10 +20,11 @@
 
     <div id="form">
       <form action="index.php" method="get"><br />
-        <input name="name" type="text" placeholder="User" /><br />
-        <textarea name="comment"></textarea><br />
-        <input type="submit" />
+        <input id="name-field" name="name" type="text" placeholder="User" /><br />
+        <textarea id="comment-field" name="comment"></textarea><br />
+        <input id="submit-button" type="submit" disabled />
       </form>
     </div>
 </body>
+<script type="text/javascript" src="script.js"></script>
 </html>
