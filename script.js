@@ -1,7 +1,7 @@
 window.onload = function(){
 	var form = {
 					name: document.getElementById('name-field'),
-					comment: document.getElementById('comment-field'),
+					message: document.getElementById('message'),
 					submit: document.getElementById('submit-button')
 
 	}
@@ -17,7 +17,7 @@ window.onload = function(){
 		}
 	};
 
-	form.comment.oninput = function(){
+	form.message.oninput = function(){
 		var text = this.value;
 		if(text.length > 100) this.value = text.slice(0, -1);
 	};

@@ -1,32 +1,24 @@
 <?php
 
 class Page {
-     function __construct($title) {
-        $this->title = $title;
+  public function get_messages($db){
+    $mysqli = new mysqli($db['server'], $db['user'], $db['pass'], $db['name']);
+    $res = $mysqli->query("SELECT `id`, `user`, `message`, `date` FROM `messages` ORDER BY id DESC LIMIT 10");
+    while($row = $res->fetch_assoc()) {
+      echo '<div class="message-block"><span style="font-size:0.8em" class="user-name">'.$row['date'].'</span><br /><span class="user-name">'.$row['user'].'</span>:<br /><span>'.$row['message'].'</span></div>';
     }
+  }
+  public function write_message($db, $user, $message){
+    $mysqli = new mysqli($db['server'], $db['user'], $db['pass'], $db['name']);
+    $query = 'INSERT INTO `messages` (`user`,`message`) VALUES  (\''.$user.'\',\''.$message.'\')';
+    $res = $mysqli->query($query);
+  }
+
+  function __construct($title) {
+    $this->title = $title;
+  }
 }
 
 $page = new Page('Guestbook');
-
-#test array of messages
-$messages = array(
-  ['name' => 'User1', 'message' => 'Hi there! I\'m here!'],
-  ['name' => 'User2', 'message' => 'What\'s up BRO!'],
-  ['name' => 'User3', 'message' => 'Just third message. Nothing else'],
-);
-
-# Add $_GET[] fields to messages array as a test example
-function catch_form_data($arr) {
-  if(isset($_GET['name']) && isset($_GET['comment'])) {
-    if (strlen($_GET['comment'])) {
-      array_push($arr, [
-        'name' => $_GET['name'],
-        'message' => $_GET['comment']
-      ]);
-    }
-  }
-  return $arr;
-}
-
 
 ?>

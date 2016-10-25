@@ -24,6 +24,8 @@ body {
 }
 
 #form {
+  width: 300px;
+  padding: 20px;
   border: 2px solid blue;
   display: inline-block;
   margin: auto;
@@ -49,4 +51,3 @@ form #submit-button[disabled] {
 	border-color: grey;
 	background-color: #000;
 }
-
