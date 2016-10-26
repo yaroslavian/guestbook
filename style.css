@@ -33,7 +33,7 @@ body {
 
 form {}
 
-form input, form textarea {
+form input, form textarea, form #send-button {
   margin: 10px;
   padding: 5px;
   color: #09F;
@@ -41,13 +41,18 @@ form input, form textarea {
   border: 2px solid #09F;
 }
 
-form #submit-button:hover {
-  color: #FFF;
-  background-color: #09F;
+form #send-button {
+  cursor: pointer;
+  display: inline-block;
 }
 
-form #submit-button[disabled] {
-	color: grey;
-	border-color: grey;
-	background-color: #000;
+form #send-button.passive {
+  background-color: #5a5a5a;
+  color: #d4d4d4;
+}
+
+
+form #send-button:hover {
+  color: #FFF;
+  background-color: #09F;
 }

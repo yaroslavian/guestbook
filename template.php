@@ -9,16 +9,15 @@
     <h2><?php echo $page->title ?></h2>
 
     <div id="form">
-      <form action="index.php" method="get"><br />
+      <form autocomplete="off"><br />
         <input id="name-field" name="user" type="text" placeholder="User" /><br />
         <textarea id="message-field" name="message"></textarea><br />
-        <input id="submit-button" type="submit" disabled />
+        <div id="send-button" class="passive" >Send message</div>
       </form>
     </div>
 
-    <div id="message-board">
-      <?php $page->get_messages($config['db']); ?>
-    </div>
+    <div id="message-board"></div>
+
 </body>
 <script type="text/javascript" src="script.js"></script>
 </html>
