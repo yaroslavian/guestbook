@@ -106,6 +106,17 @@ var main = function(){
 		};
 	}());
 
+//scroll-top
+	(function(){
+		var button = document.getElementById('scroll-top');
+		var scrollTop = function(){
+		  if(window.scrollY >= 5) {
+		    window.scroll(0,window.scrollY-(scrollY/10));
+		    setTimeout(scrollTop,10);
+		  }
+		};
+		button.onclick = scrollTop;
+	}());
 
 };
 
