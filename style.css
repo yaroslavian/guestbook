@@ -56,3 +56,13 @@ form #send-button:hover {
   color: #FFF;
   background-color: #09F;
 }
+
+#show-more {
+  width: 130px;
+  text-align: center;
+  background-color: #0061a2;
+  color: #bde4ff;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 10px;
+}

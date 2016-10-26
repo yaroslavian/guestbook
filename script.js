@@ -40,10 +40,13 @@ var main = function(){
 	//AJAX PART
 
 	var page = {
-		getMessages: function() {
+		lastId : 0,
+
+		getMessages: function(id) {
 			var i, res,
 					messages = [],
 					url = 'get-messages.php';
+					if(id) url+=('?id='+id);
 
 			var ajax = new XMLHttpRequest();
 			ajax.open("GET", url);
@@ -53,13 +56,17 @@ var main = function(){
 				res = JSON.parse(ajax.responseText);
 
 				messages = res['messages'];
+
+				page.lastId = messages[messages.length-1]['id'];
+
 				//render
 				for(i=0;i<messages.length;i++) {
 					document.getElementById('message-board').appendChild(
 						function(){
 							var div = document.createElement('div');
 							div.classList.add('message-block');
-							div.innerHTML =	messages[i]['user'] + ':<br /><br />' +
+							div.innerHTML =	messages[i]['id'] + ':<br /><br />' +
+															messages[i]['user'] + ':<br /><br />' +
 															messages[i]['message'] + '<br /><br />' +
 															messages[i]['date'];
 							return div;
@@ -89,6 +96,16 @@ var main = function(){
 	};
 
 	page.getMessages();
+
+
+//show more messages
+	(function(){
+		var showMore = document.getElementById('show-more');
+		showMore.onclick = function(){
+			page.getMessages(page.lastId);
+		};
+	}());
+
 
 };
 

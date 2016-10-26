@@ -17,6 +17,7 @@
     </div>
 
     <div id="message-board"></div>
+    <div id="show-more">Show more</div>
 
 </body>
 <script type="text/javascript" src="script.js"></script>
