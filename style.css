@@ -69,6 +69,7 @@ form #send-button:hover {
 }
 
 #scroll-top {
+  display: none;
   position: fixed;
   bottom: 10px;
   right: 100px;

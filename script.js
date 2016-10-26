@@ -13,7 +13,6 @@ var main = function(){
 					},
 					setPassive : function(){
 						this.validationStatus = false;
-						this.send.style.backgroundColor = "#F00";
 						!this.send.classList.contains('passive') && this.send.classList.add('passive');
 					}
 
@@ -113,12 +112,25 @@ var main = function(){
 		  if(window.scrollY >= 5) {
 		    window.scroll(0,window.scrollY-(scrollY/10));
 		    setTimeout(scrollTop,10);
-		  }
+		  } else window.scroll(0,0);
 		};
 		button.onclick = scrollTop;
+
+		window.onscroll = function(){
+			if(window.scrollY > window.innerHeight*2/3) {
+				button.style.display = 'block';
+			} else {
+				button.style.display = 'none';
+			}
+		};
 	}());
 
+
+
 };
+
+
+
 
 window.onload = main;
 /////
