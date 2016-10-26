@@ -96,15 +96,6 @@ var main = function(){
 
 	page.getMessages();
 
-
-//show more messages
-	(function(){
-		var showMore = document.getElementById('show-more');
-		showMore.onclick = function(){
-			page.getMessages(page.lastId);
-		};
-	}());
-
 //scroll-top
 	(function(){
 		var button = document.getElementById('scroll-top');
@@ -121,6 +112,12 @@ var main = function(){
 				button.style.display = 'block';
 			} else {
 				button.style.display = 'none';
+			}
+
+			//show more messages
+			if(document.body.clientHeight < window.scrollY + window.innerHeight) {
+				console.log(document.body.innerHeight,window.scrollY,window.innerHeight);
+				page.getMessages(page.lastId);
 			}
 		};
 	}());

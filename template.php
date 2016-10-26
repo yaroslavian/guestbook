@@ -17,7 +17,6 @@
     </div>
 
     <div id="message-board"></div>
-    <div id="show-more">Show more</div>
     <div id="scroll-top">Scroll top</div>
 
 </body>
