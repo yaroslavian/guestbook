@@ -5,35 +5,55 @@ var main = function(){
 					name: document.getElementById('name-field'),
 					message: document.getElementById('message-field'),
 					send: document.getElementById('send-button'),
-					validationStatus: false,
+					validate: function(){
+						//validate name
+						var nameIsValid = this.name.value && this.name.value.length > 1 && this.name.value.length < 30 &&
+						/^[a-zA-Zа-яА-Я0-9 _\.]+$/.test(this.name.value);
+
+						//validate message
+						(function(){
+							var text = this.message.value;
+							if(text.length > 100) {
+								this.message.value = text.slice(0, 100);
+							}
+						}.call(this));
+						var messageIsValid = !!this.message.value;
+
+						//highlighting
+						if(!nameIsValid) this.name.style.borderColor = "red";
+						else this.name.style.borderColor = "#09F";
+
+						if(!messageIsValid) this.message.style.borderColor = "red";
+						else this.message.style.borderColor = "#09F";
+
+						if( nameIsValid && messageIsValid) {
+							this.setActive();
+							return true;
+						} else {
+							this.setPassive();
+							return false;
+						}
+					},
 					setActive : function(){
-						this.validationStatus = true;
 						this.send.classList.contains('passive') && this.send.classList.remove('passive');
 
 					},
 					setPassive : function(){
-						this.validationStatus = false;
 						!this.send.classList.contains('passive') && this.send.classList.add('passive');
-					}
+					},
+					clear: function (){
+						this.name.value = this.message.value = '';
+						this.setPassive();
+					},
+					clearMessage: function (){
+						this.message.value = '';
+						this.setPassive();
+					},
 
 	}
 
-	form.name.oninput = function(){
-
-		if(/^[a-zA-Zа-яА-Я0-9 _\.]+$/.test(this.value) && this.value.length < 30) {
-			this.style.borderColor = "#09F";
-			form.setActive();
-		} else {
-			this.style.borderColor = "red";
-			form.setPassive();
-		}
-		console.log(form.validationStatus);
-	};
-
-	form.message.oninput = function(){
-		var text = this.value;
-		if(text.length > 100) this.value = text.slice(0, -1);
-	};
+	form.name.oninput = function(){ form.validate(); };
+	form.message.oninput = function(){ form.validate(); };
 
 
 	//AJAX PART
@@ -83,20 +103,18 @@ var main = function(){
 
 	};
 
-	document.getElementById('send-button').onclick = function(){
-		console.log(form.validationStatus);
-		if(form.validationStatus) {
+	form.send.onclick = function(){
+		if(form.validate()) {
 			page.sendMessage(form.name.value, form.message.value);
+			form.clearMessage();
 			document.getElementById('message-board').innerHTML = '';
 			page.getMessages();
-
 		}
-
 	};
 
 	page.getMessages();
 
-//scroll-top
+	//scroll-top button
 	(function(){
 		var button = document.getElementById('scroll-top');
 		var scrollTop = function(){
@@ -122,11 +140,22 @@ var main = function(){
 		};
 	}());
 
-
-
+	//key binding
+	(function(){
+		var formDOM = document.getElementsByTagName('form')[0];
+		//disable submit functionality
+		formDOM.onsubmit = function(e){ e.preventDefault(); };
+		formDOM.onkeypress = function(e){
+			// Send data on press Ctrl+Enter if the form is valid
+			if(e.keyCode===10 && e.ctrlKey && form.validate()) {
+				page.sendMessage(form.name.value, form.message.value);
+				form.clearMessage();
+				document.getElementById('message-board').innerHTML = '';
+				page.getMessages();
+			}
+		};
+	}());
 };
-
-
 
 
 window.onload = main;

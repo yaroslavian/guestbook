@@ -1,21 +1,21 @@
 <?php
-include './config.php';
-$db = $config['db'];
+include 'lib.php';
 
 if(isset($_GET['id'])) {
-  get_messages(array('id' => $_GET['id'], 'db' => $db));
-} else get_messages(array('id' => false, 'db' => $db));
+  get_messages(array('id' => $_GET['id'], 'page' => $page));
+} else get_messages(array('id' => false, 'page' => $page));
 
-function get_messages($arr) {
-  $db = $arr['db'];
-  $id = $arr['id'];
-  $mysqli = new mysqli($db['server'], $db['user'], $db['pass'], $db['name']);
+function get_messages($arg) {
+  $page = $arg['page'];
+  $id = $arg['id'];
+
   if($id) {
     $query = "SELECT `id`, `user`, `message`, `date` FROM `messages` WHERE id <".$id." ORDER BY id DESC LIMIT 10";
   } else {
     $query = "SELECT `id`, `user`, `message`, `date` FROM `messages` ORDER BY id DESC LIMIT 10";
   }
-  $res = $mysqli->query($query);
+
+  $res = $page->query_db($query);
 
   echo '{ "messages" : [';
   $first_element = true;
@@ -33,7 +33,5 @@ function get_messages($arr) {
   }
   echo '] }';
 }
-
-
 
 ?>
