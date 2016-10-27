@@ -9,10 +9,16 @@
     <h2><?php echo $page->title ?></h2>
 
     <div id="form">
-      <form autocomplete="off"><br />
-        <input id="name-field" name="user" type="text" placeholder="User" /><br />
-        <textarea id="message-field" name="message"></textarea><br />
-        <div id="send-button" class="passive" >Send message</div>
+      <form autocomplete="off">
+        <div class="wrapper">
+          <div class="left-side">
+            <input id="name-field" name="user" type="text" placeholder="User" />
+            <div id="send-button" class="passive" >Send message</div>
+          </div>
+          <div class="right-side">
+            <textarea id="message-field" name="message"></textarea>
+          </div>
+        </div>
       </form>
     </div>
 

@@ -5,13 +5,15 @@ body {
 }
 
 #message-board {
+  /*margin-top: 100px;*/
+  display: block;
 
 }
 
-#message-board .message-block {
-  width: 300px;
+.message-block {
+  width: 40%  ;
   padding: 20px;
-  margin: 15px 0;
+  margin: 10px auto;
   border: 2px dashed #09F;
 }
 
@@ -23,39 +25,81 @@ body {
   margin: 10px;
 }
 
-#form {
-  width: 300px;
-  padding: 20px;
-  border: 2px solid blue;
-  display: inline-block;
+div#form {
+  /*position: fixed;*/
+  left: auto;
+  top: 0;
+  width: 75%;
+  display:  block;
   margin: auto;
 }
 
-form {}
+form {
+  /*width: 100%;*/
+}
 
 form input, form textarea, form #send-button {
-  margin: 10px;
+  display: block;
+  /*margin: 10px;*/
   padding: 5px;
   color: #09F;
   background-color: #000;
   border: 2px solid #09F;
 }
 
-form #send-button {
-  cursor: pointer;
-  display: inline-block;
+div.wrapper {
+  border: 2px solid blue;
+
+  padding: 10px 10px;
+  margin: 0px;
+  /*border: 0px;*/
+  display: table;
+  width: 100%;
 }
 
-form #send-button.passive {
+div.left-side {
+  vertical-align: top;
+  display: table-cell;
+  width: 199px;
+  padding: 0;
+}
+
+  #name-field {
+    width: 185px;
+    display: block;
+    margin: 0 0 10px 0;
+  }
+
+  #send-button {
+    width: 185px;
+    display: block;
+    cursor: pointer;
+  }
+
+div.right-side {
+  display: table-cell;
+  padding: 0 12px 0 10px;
+  /*width: 220px;*/
+}
+  #message-field {
+    width: 100%;
+    height: 57px;
+    /*margin: 0;*/
+
+  }
+
+
+#send-button.passive {
   background-color: #5a5a5a;
   color: #d4d4d4;
 }
 
-
-form #send-button:hover {
+#send-button:hover {
   color: #FFF;
   background-color: #09F;
 }
+
+
 
 #scroll-top {
   position: fixed;
