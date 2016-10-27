@@ -105,6 +105,7 @@ var main = function(){
 
 	form.send.onclick = function(){
 		if(form.validate()) {
+			document.cookie="name:"+form.name.value;
 			page.sendMessage(form.name.value, form.message.value);
 			form.clearMessage();
 			document.getElementById('message-board').innerHTML = '';
@@ -148,6 +149,7 @@ var main = function(){
 		formDOM.onkeypress = function(e){
 			// Send data on press Ctrl+Enter if the form is valid
 			if(e.keyCode===10 && e.ctrlKey && form.validate()) {
+				document.cookie="name:"+form.name.value;
 				page.sendMessage(form.name.value, form.message.value);
 				form.clearMessage();
 				document.getElementById('message-board').innerHTML = '';
@@ -155,6 +157,19 @@ var main = function(){
 			}
 		};
 	}());
+
+	//cookies and focus
+	(function(){
+		// form.name.value = document.cookie
+		console.log(document.cookie);
+		if(document.cookie){
+			var name = document.cookie.split(':')[1];
+			form.name.value = name;
+			form.message.focus();
+		} else { form.name.focus(); };
+
+	}());
+
 };
 
 
