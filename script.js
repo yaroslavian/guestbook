@@ -95,6 +95,9 @@ var main = function(){
 		},
 
 		sendMessage: function(user, message) {
+			message = message.replace(/[,-_.!~*'()]/g, '\\$&');
+			user = encodeURIComponent(user);
+			message = encodeURIComponent(message);
 			var url = 'send-message.php?user='+user+'&message='+message;
 			var ajax = new XMLHttpRequest();
 			ajax.open("GET", url);

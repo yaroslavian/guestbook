@@ -17,21 +17,18 @@ function get_messages($arg) {
 
   $res = $page->query_db($query);
 
-  echo '{ "messages" : [';
-  $first_element = true;
-  while($row = $res->fetch_assoc()) {
-    if($first_element) {
-      $first_element = false;
-    } else echo ',';
+  $json = array( "messages" => array() );
 
-    echo '{
-      "id":"'.$row['id'].'",
-      "date":"'.$row['date'].'",
-      "user" : " '.$row['user'].'",
-      "message":"'.$row['message'].'"
-    }';
-  }
-  echo '] }';
+  while($row = $res->fetch_assoc()) {
+      array_push($json['messages'], array(
+          'id' => $row['id'],
+          'date' => $row['date'],
+          'user' => $row['user'],
+          'message' => $row['message']
+      ));
+    }
+
+  echo json_encode($json);
 }
 
 ?>

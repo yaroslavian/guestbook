@@ -8,6 +8,8 @@
 <body>
     <h2><?php echo $page->title ?></h2>
 
+<!-- CONTROL PANEL -->
+  <div id="control-panel">
     <div id="form">
       <form autocomplete="off">
         <div class="wrapper">
@@ -21,6 +23,8 @@
         </div>
       </form>
     </div>
+  </div>
+<!-- / CONTROL PANEL -->
 
     <div id="message-board"></div>
     <div id="scroll-top">Scroll top</div>

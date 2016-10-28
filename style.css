@@ -5,7 +5,7 @@ body {
 }
 
 #message-board {
-  /*margin-top: 100px;*/
+  margin-top: 70px;
   display: block;
 
 }
@@ -25,10 +25,13 @@ body {
   margin: 10px;
 }
 
+div#control-panel{
+    position: fixed;
+    width: 100%;
+    top:0;
+}
+
 div#form {
-  /*position: fixed;*/
-  left: auto;
-  top: 0;
   width: 75%;
   display:  block;
   margin: auto;
