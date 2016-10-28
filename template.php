@@ -11,6 +11,7 @@
 <!-- CONTROL PANEL -->
   <div id="control-panel">
     <div id="form">
+      <div id="register-link">Sign up</div>
       <form autocomplete="off">
         <div class="wrapper">
           <div class="left-side">
@@ -28,6 +29,13 @@
 
     <div id="message-board"></div>
     <div id="scroll-top">Scroll top</div>
+
+<!-- REGISTRATION FORM -->
+  <div id="reg-form-wrapper">
+    <div id="registration-form" style="">
+
+    </div>
+  </div>
 
 </body>
 <script type="text/javascript" src="script.js"></script>

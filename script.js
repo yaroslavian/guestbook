@@ -173,6 +173,27 @@ var main = function(){
 
 	}());
 
+
+	//registration form
+	(function(){
+
+		var registerLink = document.getElementById('register-link');
+		var wrapper = document.getElementById('reg-form-wrapper');
+		var container = document.getElementById('registration-form');
+
+		registerLink.onclick = function(){
+			wrapper.style.display='block';
+			wrapper.onclick = function(e){
+				if(e.target !== container)	this.style.display = 'none';
+			};
+			container.onclick = function(){
+
+			};
+		};
+
+	}());
+
+
 };
 
 
