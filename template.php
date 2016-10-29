@@ -6,11 +6,11 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <h2><?php echo $page->title ?></h2>
 
 <!-- CONTROL PANEL -->
   <div id="control-panel">
     <div id="form">
+      <div id="logo"><?php echo strtoupper($page->title) ?></div>
       <div id="register-link">Sign up</div>
       <form autocomplete="off">
         <div class="wrapper">
