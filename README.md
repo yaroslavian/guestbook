@@ -1,7 +1,7 @@
 # guestbook
 Simple **PHP** **AJAX** guestbook.
 
-_Test assignment. In development._
+:warning: _**Incomplete. In development.**_ :warning:
 
 ##Installation steps:
 
