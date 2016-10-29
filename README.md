@@ -13,7 +13,7 @@ _Test assignment. In development._
 2. Restore DB-dump.sql to that DB.
   
   ```
-    mysql -u user_name -ppassword db_name < DB-bump.sql
+    mysql -u user_name -ppassword db_name < DB-dump.sql
   ```
 3. Replace the test values of the database options in config.php.tpl with the current ones and save it as config.php
   
