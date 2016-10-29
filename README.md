@@ -7,17 +7,17 @@ _Test assignment. In development._
 
 1. Create DB in MySQL.
   
-  ```
+  ```sql
     CREATE DATABASE `db_name`;
   ```
 2. Restore DB-dump.sql to that DB.
   
-  ```
+  ```shell
     mysql -u user_name -ppassword db_name < DB-dump.sql
   ```
 3. Replace the test values of the database options in config.php.tpl with the current ones and save it as config.php
   
-  ```
+  ```php
     <?php
       $config = array(
         'db' => array(
