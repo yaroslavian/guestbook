@@ -3,6 +3,11 @@ Simple **PHP** **AJAX** guestbook.
 
 :warning: _**Incomplete. In development.**_ :warning:
 
+##Installation requirements:
+- php5+
+- MySQL
+- Webserver
+
 ##Installation steps:
 
 1. Create DB in MySQL.
