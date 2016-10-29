@@ -143,10 +143,35 @@ div.right-side {
   display: none;
 }
 
-#registration-form {
+#reg-form-container {
   margin: 10% auto;
   width: 300px;
-  height: 300px;
-  border: 2px solid red;
+  border: 2px solid #09f;
   background-color: #212121;
+}
+
+#reg-form-container form {
+  margin: 10px auto;
+  padding: 20px 20px;
+  text-align: center;
+  display: block;
+}
+
+#reg-form-container form > * {
+  margin: 10px auto;
+}
+
+#reg-form-container form > input[name="regname"] {
+}
+
+#reg-submit {
+  width: 100px;
+  padding: 10px;
+  border: 2px solid #09f;
+  cursor: pointer;
+}
+
+#reg-submit:hover {
+  background-color: lime;
+
 }

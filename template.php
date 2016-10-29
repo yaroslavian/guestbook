@@ -32,8 +32,12 @@
 
 <!-- REGISTRATION FORM -->
   <div id="reg-form-wrapper">
-    <div id="registration-form" style="">
-
+    <div id="reg-form-container">
+      <form>
+        <input name="regname" type="text" placeholder="Login" />
+        <input name="regpass" type="password" placeholder="Password" />
+        <div id="reg-submit">Sign up</div>
+      </form>
     </div>
   </div>
 

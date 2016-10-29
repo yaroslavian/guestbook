@@ -179,17 +179,24 @@ var main = function(){
 
 		var registerLink = document.getElementById('register-link');
 		var wrapper = document.getElementById('reg-form-wrapper');
-		var container = document.getElementById('registration-form');
+		var container = document.getElementById('reg-form-container');
+		var form = document.querySelector('#reg-form-container > form');
+		var submit = document.getElementById('reg-submit');
 
 		registerLink.onclick = function(){
 			wrapper.style.display='block';
-			wrapper.onclick = function(e){
-				if(e.target !== container)	this.style.display = 'none';
-			};
-			container.onclick = function(){
-
-			};
 		};
+
+		wrapper.onclick = function(e){
+			if(e.target ===  this)	this.style.display = 'none';
+		};
+
+		submit.onclick = function() {
+			wrapper.style.display = 'none';
+		};
+
+
+
 
 	}());
 
