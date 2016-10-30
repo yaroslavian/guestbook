@@ -1,5 +1,5 @@
 <?php
-include 'lib.php';
+include '../lib.php';
 
 if(isset($_GET['id'])) {
   get_messages(array('id' => $_GET['id'], 'page' => $page));

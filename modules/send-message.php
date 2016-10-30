@@ -1,5 +1,5 @@
 <?php
-  include 'lib.php';
+  include '../lib.php';
 
   # Check for $_GET request to send new message. If ok, write it to the DB
   if(isset($_GET['user']) && isset($_GET['message'])){

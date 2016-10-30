@@ -64,7 +64,7 @@ var main = function(){
 		getMessages: function(id) {
 			var i, res,
 					messages = [],
-					url = 'get-messages.php';
+					url = 'modules/get-messages.php';
 					if(id) url+=('?id='+id);
 
 			var ajax = new XMLHttpRequest();
@@ -98,7 +98,7 @@ var main = function(){
 			message = message.replace(/[,-_.!~*'()]/g, '\\$&');
 			user = encodeURIComponent(user);
 			message = encodeURIComponent(message);
-			var url = 'send-message.php?user='+user+'&message='+message;
+			var url = 'modules/send-message.php?user='+user+'&message='+message;
 			var ajax = new XMLHttpRequest();
 			ajax.open("GET", url);
 			ajax.send();
@@ -193,7 +193,7 @@ var main = function(){
 
 		submit.onclick = function() {
 			wrapper.style.display = 'none';
-			var url = 'registrator.php';
+			var url = 'modules/registrator.php';
 			var postData = "username=" +
 				document.querySelector('input[name="regname"]').value +
 				"&password=" +

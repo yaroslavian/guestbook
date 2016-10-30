@@ -1,6 +1,6 @@
 <?php
 #New user registrator
-include 'lib.php';
+include '../lib.php';
 
 if(isset($_POST['username']) && isset($_POST['password'])) {
   register_user($_POST['username'], $_POST['password'], $page);
