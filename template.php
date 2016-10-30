@@ -40,6 +40,7 @@
       </form>
     </div>
   </div>
+<!-- / REGISTRATION FORM -->
 
 </body>
 <script type="text/javascript" src="script.js"></script>

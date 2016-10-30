@@ -193,13 +193,21 @@ var main = function(){
 
 		submit.onclick = function() {
 			wrapper.style.display = 'none';
+			var url = 'registrator.php';
+			var postData = "username=" +
+				document.querySelector('input[name="regname"]').value +
+				"&password=" +
+				document.querySelector('input[name="regpass"]').value;
+
+			var ajax = new XMLHttpRequest();
+			ajax.open('POST', url);
+
+			ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			ajax.send(postData);
+
 		};
 
-
-
-
 	}());
-
 
 };
 
