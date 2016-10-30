@@ -3,7 +3,7 @@
 <head>
     <title><?php echo $page->title; ?></title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style/style.css" />
 </head>
 <body>
 
@@ -43,5 +43,5 @@
 <!-- / REGISTRATION FORM -->
 
 </body>
-<script type="text/javascript" src="script.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
 </html>
