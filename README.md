@@ -15,21 +15,24 @@ Simple **PHP** **AJAX** guestbook.
   ```sql
     CREATE DATABASE `db_name`;
   ```
-2. Restore DB-dump.sql to that DB.
+  
+2. Change directory from ___project root___ to ___installation___  
   
   ```shell
-    mysql -u user_name -ppassword db_name < DB-dump.sql
+    cd installation
   ```
-3. Replace the test values of the database options in config.php.tpl with the current ones and save it as config.php
   
-  ```php
-    <?php
-      $config = array(
-        'db' => array(
-        'server' => 'real_db_server_name',
-        'name' => 'real_db_name',
-        'user' => 'real_db_user',
-        'pass' => 'real_db_password' )
-      );
-    ?>
+3. Edit file __install.sh__. Replace the test values of the database options with real ones as shown below.
+  
+  ```shell
+    DB_SERVER=real_database_server
+    DB_NAME=real_database_name
+    DB_USER=real_database_user
+    DB_PASS=real_database_password
+  ```
+  
+4. Execute __install.sh__ file from current directory.
+  
+  ```shell
+    ./install.sh
   ```
