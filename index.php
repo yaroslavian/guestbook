@@ -2,5 +2,5 @@
   include './lib.php';
 
 # Building page according to template
-    include './template.php';
+    include 'templates/guestbook.php';
 ?>
