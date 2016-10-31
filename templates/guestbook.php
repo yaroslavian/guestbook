@@ -28,7 +28,6 @@
 <!-- / CONTROL PANEL -->
 
     <div id="message-board"></div>
-    <div id="scroll-top">Scroll top</div>
 
 <!-- REGISTRATION FORM -->
   <div id="reg-form-wrapper">
@@ -43,5 +42,6 @@
 <!-- / REGISTRATION FORM -->
 
 </body>
-<script type="text/javascript" src="js/script.js"></script>
+<script type="text/javascript" src="js/lib.js"></script>
+<script type="text/javascript" src="js/guestbook.js"></script>
 </html>

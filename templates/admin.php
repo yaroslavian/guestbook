@@ -14,5 +14,6 @@
   <div id="scroll-top">Scroll top</div>
 
 </body>
+<script type="text/javascript" src="js/lib.js"></script>
 <script type="text/javascript" src="js/admin.js"></script>
 </html>
