@@ -24,6 +24,12 @@ body {
 
 }
 
+#message-board.admin {
+  margin-top: 10px;
+  display: block;
+
+}
+
 .message-block {
   width: 40%  ;
   padding: 20px;

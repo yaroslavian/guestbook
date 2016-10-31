@@ -1,6 +1,8 @@
 <?php
   include './lib.php';
 
-# Building page according to template
-    include 'templates/guestbook.php';
+  # Include templte depends of "admin" parametr in $_GET
+  if(isset($_GET['admin'])) include 'templates/admin.php';
+  else include 'templates/guestbook.php';
+  
 ?>
