@@ -41,7 +41,7 @@ var page = {
           if(that.additions && that.additions.renderMessages) {
             that.additions.renderMessages.call(that, div);
           }
-          
+
           parent.appendChild(div);
       }());
     }
@@ -85,6 +85,20 @@ var page = {
     return function(){
       if(window.scrollY > window.innerHeight*2/3) button.style.display = 'block';
       else button.style.display = 'none';
+    };
+  },
+
+  popupWrapper : document.getElementById('popup-form-wrapper'),
+
+  renderPopup: function(container) {
+    this.popupWrapper.style.display='block';
+    container.style.display='block';
+
+    this.popupWrapper.onclick = function(e){
+      if(e.target ===  this) {
+        container.style.display = 'none';
+        this.style.display = 'none';
+      }
     };
   }
 

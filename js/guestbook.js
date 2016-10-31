@@ -105,30 +105,26 @@ var main = function(){
 	}());
 
 
-	//registration form
+
+	//login form
 	(function(){
+		var loginLink = document.getElementById('login-link');
+		// var wrapper = document.getElementById('popup-form-wrapper');
+		var container = document.getElementById('login-form-container');
+		var form = document.querySelector('#login-form-container > form');
+		var submit = document.getElementById('login-submit');
 
-		var registerLink = document.getElementById('register-link');
-		var wrapper = document.getElementById('reg-form-wrapper');
-		var container = document.getElementById('reg-form-container');
-		var form = document.querySelector('#reg-form-container > form');
-		var submit = document.getElementById('reg-submit');
-
-		registerLink.onclick = function(){
-			wrapper.style.display='block';
-		};
-
-		wrapper.onclick = function(e){
-			if(e.target ===  this)	this.style.display = 'none';
+		loginLink.onclick = function(){
+			page.renderPopup(container);
 		};
 
 		submit.onclick = function() {
-			wrapper.style.display = 'none';
-			var url = 'modules/registrator.php';
+			page.popupWrapper.style.display = 'none';
+			var url = 'modules/login.php';
 			var postData = "username=" +
-				document.querySelector('input[name="regname"]').value +
-				"&password=" +
-				document.querySelector('input[name="regpass"]').value;
+				document.querySelector('input[name="username"]').value +
+				"&userpass=" +
+				document.querySelector('input[name="userpass"]').value;
 
 			var ajax = new XMLHttpRequest();
 			ajax.open('POST', url);
@@ -137,6 +133,39 @@ var main = function(){
 			ajax.send(postData);
 
 		};
+
+
+
+	}());
+
+	//registration form
+	(function(){
+
+		var registerLink = document.getElementById('register-link');
+		// var wrapper = document.getElementById('popup-form-wrapper');
+		var container = document.getElementById('reg-form-container');
+		var form = document.querySelector('#reg-form-container > form');
+		var submit = document.getElementById('reg-submit');
+
+		registerLink.onclick = function(){
+			page.renderPopup(container);
+		};
+		//
+		// submit.onclick = function() {
+		// 	page.popupWrapper.style.display = 'none';
+		// 	var url = 'modules/registrator.php';
+		// 	var postData = "username=" +
+		// 		document.querySelector('input[name="regname"]').value +
+		// 		"&password=" +
+		// 		document.querySelector('input[name="regpass"]').value;
+		//
+		// 	var ajax = new XMLHttpRequest();
+		// 	ajax.open('POST', url);
+		//
+		// 	ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		// 	ajax.send(postData);
+		//
+		// };
 
 	}());
 

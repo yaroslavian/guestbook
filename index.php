@@ -1,8 +1,11 @@
 <?php
   include './lib.php';
+  session_start();
+  // var_dump ($_SESSION);
 
-  # Include templte depends of "admin" parametr in $_GET
-  if(isset($_GET['admin'])) include 'templates/admin.php';
-  else include 'templates/guestbook.php';
-  
+# Include template depends of session current session username
+  if(isset($_SESSION['username']) && $_SESSION['username'] == 'admin') {
+    include 'templates/admin.php';
+  } else include 'templates/guestbook.php';
+
 ?>
