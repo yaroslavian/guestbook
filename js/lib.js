@@ -23,19 +23,28 @@ var page = {
       that.lastId = messages[messages.length-1]['id'];
 
       //render
-      for(i=0;i<messages.length;i++) {
-        document.getElementById('message-board').appendChild(
-          function(){
-            var div = document.createElement('div');
-            div.classList.add('message-block');
-            div.innerHTML =	messages[i]['id'] + ':<br /><br />' +
-                            messages[i]['user'] + ':<br /><br />' +
-                            messages[i]['message'] + '<br /><br />' +
-                            messages[i]['date'];
-            return div;
-          }());
-        }
+      that.renderMessages(messages);
     };
+  },
+
+  renderMessages: function(messages, parent){
+    parent = parent || document.getElementById('message-board');
+    var that = this;
+    for(i=0;i<messages.length;i++) {
+      (function(){
+          var div = document.createElement('div');
+          div.classList.add('message-block');
+          div.innerHTML =	'<div>'+messages[i]['id']+'</div>' +
+                          messages[i]['user'] + ':<br /><br />' +
+                          messages[i]['message'] + '<br /><br />' +
+                          messages[i]['date'];
+          if(that.additions && that.additions.renderMessages) {
+            that.additions.renderMessages.call(that, div);
+          }
+          
+          parent.appendChild(div);
+      }());
+    }
   },
 
   sendMessage: function(user, message) {
