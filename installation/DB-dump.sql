@@ -21,7 +21,7 @@ INSERT INTO `messages` (`user`,`message`)
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `username` varchar(255),
+  `username` varchar(255) UNIQUE,
   `password` text,
   `reg_date` timestamp,
   PRIMARY KEY(`id`)
@@ -31,5 +31,5 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`username`, `password`)
   VALUES
     ('admin', '54321'),
-    ('user', '12345');
+    ('user', '12345'),
     ('user2', '11111');
