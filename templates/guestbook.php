@@ -11,7 +11,7 @@
   <div id="control-panel">
     <div id="form">
       <div id="logo"><?php echo strtoupper($page->title) ?></div>
-      <div id="register-link">Sign up</div>
+      <!-- <div id="register-link">Sign up</div> -->
       <div id="login-link">Sign in</div>
       <form autocomplete="off">
         <div class="wrapper">
