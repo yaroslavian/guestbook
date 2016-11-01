@@ -11,8 +11,16 @@
   <div id="control-panel">
     <div id="form">
       <div id="logo"><?php echo strtoupper($page->title) ?></div>
-      <!-- <div id="register-link">Sign up</div> -->
-      <div id="login-link">Sign in</div>
+      <?php
+          if(!isset($_SESSION['username'])) {
+            echo '<div id="register-link">Sign up</div>';
+            echo '<div id="login-link">Sign in</div>';
+          } else {
+            echo '<div id="logout">Logout</div>';
+            echo '<div id="logged-user">'.$_SESSION['username'].'</div>';
+          }
+      ?>
+
       <form autocomplete="off">
         <div class="wrapper">
           <div class="left-side">
@@ -46,6 +54,7 @@
       <form>
         <input name="regname" type="text" placeholder="Login" />
         <input name="regpass" type="password" placeholder="Password" />
+        <input name="regpass1" type="password" placeholder="Confirm password" />
         <div id="reg-submit">Sign up</div>
       </form>
     </div>

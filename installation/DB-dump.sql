@@ -30,4 +30,6 @@ CREATE TABLE `users` (
 #insert test values
 INSERT INTO `users` (`username`, `password`)
   VALUES
+    ('admin', '54321'),
     ('user', '12345');
+    ('user2', '11111');

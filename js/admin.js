@@ -7,7 +7,7 @@ var main = function() {
 
   (function(){
     var logout = document.getElementById('logout');
-    logout.onclick = page.closeSession;
+    logout && (logout.onclick = page.closeSession);
   }());
 
   //scroll event

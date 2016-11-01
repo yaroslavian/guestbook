@@ -114,11 +114,8 @@ var main = function(){
 		var form = document.querySelector('#login-form-container > form');
 		var submit = document.getElementById('login-submit');
 
-		loginLink.onclick = function(){
-			page.renderPopup(container);
-		};
-
 		submit.onclick = function() {
+			container.style.display = 'none';
 			page.popupWrapper.style.display = 'none';
 			var url = 'modules/login.php';
 			var postData = "username=" +
@@ -142,6 +139,10 @@ var main = function(){
 
 		};
 
+		loginLink && (loginLink.onclick = function(){
+			page.renderPopup(container);
+		});
+
 
 
 	}());
@@ -155,27 +156,41 @@ var main = function(){
 		var form = document.querySelector('#reg-form-container > form');
 		var submit = document.getElementById('reg-submit');
 
-		registerLink.onclick = function(){
-			page.renderPopup(container);
+		var pass = document.querySelector('input[name="regpass"]');
+		var passConfirm = document.querySelector('input[name="regpass1"]');
+
+		submit.onclick = function() {
+			if(pass.value === passConfirm.value){
+				container.style.display = 'none';
+				page.popupWrapper.style.display = 'none';
+				var url = 'modules/registrator.php';
+				var postData = "username=" +
+					document.querySelector('input[name="regname"]').value +
+					"&password=" +
+					document.querySelector('input[name="regpass"]').value;
+
+				var ajax = new XMLHttpRequest();
+				ajax.open('POST', url);
+
+				ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+				ajax.send(postData);
+
+			} else {
+				alert('Passwords are not the same!');
+			}
 		};
-		//
-		// submit.onclick = function() {
-		// 	page.popupWrapper.style.display = 'none';
-		// 	var url = 'modules/registrator.php';
-		// 	var postData = "username=" +
-		// 		document.querySelector('input[name="regname"]').value +
-		// 		"&password=" +
-		// 		document.querySelector('input[name="regpass"]').value;
-		//
-		// 	var ajax = new XMLHttpRequest();
-		// 	ajax.open('POST', url);
-		//
-		// 	ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-		// 	ajax.send(postData);
-		//
-		// };
+
+		registerLink && (registerLink.onclick = function(){
+			page.renderPopup(container);
+		});
 
 	}());
+
+	//logout
+	(function(){
+	    var logout = document.getElementById('logout');
+	  	logout && (logout.onclick = page.closeSession);
+	  }());
 
 };
 

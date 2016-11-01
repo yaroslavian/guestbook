@@ -138,7 +138,7 @@ div.right-side {
 }
 
 /* Registration form */
-#register-link, #login-link {
+#register-link, #login-link, #logged-user ,#control-panel #logout {
     display: inline-block;
     text-align: right;
     float: right;
@@ -146,6 +146,10 @@ div.right-side {
     font-size: 15px;
     margin: 10px 2px;
     padding: 2px;
+}
+
+#logged-user {
+  color: grey;
 }
 
 #register-link:hover, #login-link:hover {
