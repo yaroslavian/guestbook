@@ -132,6 +132,14 @@ var main = function(){
 			ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 			ajax.send(postData);
 
+			ajax.onload = function(){
+				var res = JSON.parse(ajax.responseText);
+				if(res && res.status) {
+					console.log(res);
+					location.reload();
+				}
+			};
+
 		};
 
 

@@ -196,3 +196,7 @@ div.right-side {
   background-color: lime;
 
 }
+
+#logout {
+  cursor: pointer;
+}

@@ -100,6 +100,15 @@ var page = {
         this.style.display = 'none';
       }
     };
+  },
+
+  closeSession: function(){
+    var ajax = new XMLHttpRequest();
+    ajax.open("GET",'modules/logout.php');
+    ajax.send();
+    ajax.onload = function(){
+      location.reload();
+    };
   }
 
 };

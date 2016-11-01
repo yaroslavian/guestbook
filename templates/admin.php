@@ -10,6 +10,7 @@
 <?php
   echo '<h1>This is admin page</h1>';
 ?>
+  <div id="logout">Logout</div>
   <div id="message-board" class="admin"></div>
   <div id="scroll-top">Scroll top</div>
 

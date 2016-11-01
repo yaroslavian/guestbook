@@ -5,7 +5,7 @@
     if($_POST['username'] == 'admin' && $_POST['userpass'] == 12345) {
       session_start();
       $_SESSION['username'] = 'admin';
-      error_log($_SESSION['username']);
+      echo '{ "status": 1 }';
     }
   }
 ?>
