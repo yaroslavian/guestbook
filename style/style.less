@@ -3,6 +3,7 @@ body {
   color: #09F;
   background-color: #000;
 }
+
 #logo {
   color: white;
   background-color: #003e56;
@@ -16,87 +17,107 @@ body {
   margin: 8px 2px;
   padding: 2px 4px 1px 4px;
 }
+
 #message-board {
-  margin-top: 150px;
-  display: block;
+	margin-top: 150px;
+	display: block;
+
+	&.admin {
+		margin-top: 10px;
+		display: block;
+	}
+	.username {
+		margin: 10px;
+	}
+
+	.message-block {
+		width: 40%  ;
+		padding: 20px;
+		margin: 10px auto;
+		border: 2px dashed #09F;
+	}
+
+	.message-text {
+		margin: 10px;
+	}
 }
-#message-board.admin {
-  margin-top: 10px;
-  display: block;
+
+div#control-panel{
+    position: fixed;
+    width: 100%;
+    top:0;
 }
-#message-board .username {
-  margin: 10px;
-}
-#message-board .message-block {
-  width: 40%  ;
-  padding: 20px;
-  margin: 10px auto;
-  border: 2px dashed #09F;
-}
-#message-board .message-text {
-  margin: 10px;
-}
-div#control-panel {
-  position: fixed;
-  width: 100%;
-  top: 0;
-}
+
 div#form {
   width: 75%;
-  display: block;
+  display:  block;
   margin: auto;
 }
-form input,
-form textarea,
-form #send-button {
-  display: block;
-  padding: 5px;
-  color: #09F;
-  background-color: #000;
-  border: 2px solid #09F;
+
+form {
+  //width: 100%;
+	input, textarea, #send-button {
+		display: block;
+		//margin: 10px;
+		padding: 5px;
+		color: #09F;
+		background-color: #000;
+		border: 2px solid #09F;
+	}
 }
+
 div.wrapper {
   border: 2px solid blue;
+
   padding: 10px 10px;
   margin: 0px;
   /*border: 0px;*/
   display: table;
   width: 100%;
 }
+
 div.left-side {
   vertical-align: top;
   display: table-cell;
   width: 199px;
   padding: 0;
 }
-#name-field {
-  width: 185px;
-  display: block;
-  margin: 0 0 10px 0;
-}
-#send-button {
-  width: 185px;
-  display: block;
-  cursor: pointer;
-}
+
+  #name-field {
+    width: 185px;
+    display: block;
+    margin: 0 0 10px 0;
+  }
+
+  #send-button {
+    width: 185px;
+    display: block;
+    cursor: pointer;
+  }
+
 div.right-side {
   display: table-cell;
   padding: 0 12px 0 10px;
   /*width: 220px;*/
 }
-#message-field {
-  width: 100%;
-  height: 57px;
-  /*margin: 0;*/
-}
+  #message-field {
+    width: 100%;
+    height: 57px;
+    /*margin: 0;*/
+
+  }
+
+
 #send-button.passive {
   background-color: #5a5a5a;
   color: #d4d4d4;
 }
+
 #send-button:hover {
   color: #FFF;
   background-color: #09F;
 }
+
 #scroll-top {
   position: fixed;
   bottom: 10px;
@@ -109,28 +130,30 @@ div.right-side {
   padding: 10px;
   cursor: pointer;
   border-radius: 10px;
+
 }
+
 /* Registration form */
-#register-link,
-#login-link,
-#logged-user,
-#control-panel #logout {
-  display: inline-block;
-  text-align: right;
-  float: right;
-  cursor: pointer;
-  font-size: 15px;
-  margin: 10px 2px;
-  padding: 2px;
+#register-link, #login-link, #logged-user ,#control-panel #logout {
+    display: inline-block;
+    text-align: right;
+    float: right;
+    cursor: pointer;
+    font-size: 15px;
+    margin: 10px 2px;
+    padding: 2px;
 }
+
 #logged-user {
   color: grey;
 }
-#register-link:hover,
-#login-link:hover {
-  margin: 8px 0;
-  border: 2px dashed #09F;
+
+#register-link:hover, #login-link:hover {
+    margin: 8px 0;
+    border: 2px dashed #09F;
+
 }
+
 #popup-form-wrapper {
   position: fixed;
   top: 0;
@@ -139,36 +162,41 @@ div.right-side {
   background-color: #000;
   display: none;
 }
-#reg-form-container,
-#login-form-container {
+
+#reg-form-container, #login-form-container {
   display: none;
   margin: 10% auto;
   width: 300px;
   border: 2px solid #09f;
   background-color: #212121;
 }
-#reg-form-container form,
-#login-form-container form {
+
+#reg-form-container form, #login-form-container form {
   margin: 10px auto;
   padding: 20px 20px;
   text-align: center;
   display: block;
 }
-#reg-form-container form > *,
-#login-form-container form > * {
+
+#reg-form-container form > *, #login-form-container form > * {
   margin: 10px auto;
 }
-#reg-submit,
-#login-submit {
+
+#reg-form-container form > input[name="regname"] {
+}
+
+#reg-submit, #login-submit {
   width: 100px;
   padding: 10px;
   border: 2px solid #09f;
   cursor: pointer;
 }
-#reg-submit:hover,
-#login-submit:hover {
+
+#reg-submit:hover, #login-submit:hover {
   background-color: lime;
+
 }
+
 #logout {
   cursor: pointer;
 }
