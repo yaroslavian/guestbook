@@ -24,6 +24,12 @@ body {
 
 }
 
+#message-board.admin {
+  margin-top: 10px;
+  display: block;
+
+}
+
 .message-block {
   width: 40%  ;
   padding: 20px;
@@ -132,7 +138,7 @@ div.right-side {
 }
 
 /* Registration form */
-#register-link {
+#register-link, #login-link {
     display: inline-block;
     text-align: right;
     float: right;
@@ -142,13 +148,13 @@ div.right-side {
     padding: 2px;
 }
 
-#register-link:hover {
+#register-link:hover, #login-link:hover {
     margin: 8px 0;
     border: 2px dashed #09F;
 
 }
 
-#reg-form-wrapper {
+#popup-form-wrapper {
   position: fixed;
   top: 0;
   width: 100%;
@@ -157,35 +163,40 @@ div.right-side {
   display: none;
 }
 
-#reg-form-container {
+#reg-form-container, #login-form-container {
+  display: none;
   margin: 10% auto;
   width: 300px;
   border: 2px solid #09f;
   background-color: #212121;
 }
 
-#reg-form-container form {
+#reg-form-container form, #login-form-container form {
   margin: 10px auto;
   padding: 20px 20px;
   text-align: center;
   display: block;
 }
 
-#reg-form-container form > * {
+#reg-form-container form > *, #login-form-container form > * {
   margin: 10px auto;
 }
 
 #reg-form-container form > input[name="regname"] {
 }
 
-#reg-submit {
+#reg-submit, #login-submit {
   width: 100px;
   padding: 10px;
   border: 2px solid #09f;
   cursor: pointer;
 }
 
-#reg-submit:hover {
+#reg-submit:hover, #login-submit:hover {
   background-color: lime;
 
+}
+
+#logout {
+  cursor: pointer;
 }

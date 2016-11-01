@@ -55,57 +55,6 @@ var main = function(){
 	form.name.oninput = function(){ form.validate(); };
 	form.message.oninput = function(){ form.validate(); };
 
-
-	//AJAX PART
-
-	var page = {
-		lastId : 0,
-
-		getMessages: function(id) {
-			var i, res,
-					messages = [],
-					url = 'modules/get-messages.php';
-					if(id) url+=('?id='+id);
-
-			var ajax = new XMLHttpRequest();
-			ajax.open("GET", url);
-			ajax.send();
-
-			ajax.onload = function() {
-				res = JSON.parse(ajax.responseText);
-
-				messages = res['messages'];
-
-				page.lastId = messages[messages.length-1]['id'];
-
-				//render
-				for(i=0;i<messages.length;i++) {
-					document.getElementById('message-board').appendChild(
-						function(){
-							var div = document.createElement('div');
-							div.classList.add('message-block');
-							div.innerHTML =	messages[i]['id'] + ':<br /><br />' +
-															messages[i]['user'] + ':<br /><br />' +
-															messages[i]['message'] + '<br /><br />' +
-															messages[i]['date'];
-							return div;
-					}());
-				}
-			};
-		},
-
-		sendMessage: function(user, message) {
-			message = message.replace(/[,-_.!~*'()]/g, '\\$&');
-			user = encodeURIComponent(user);
-			message = encodeURIComponent(message);
-			var url = 'modules/send-message.php?user='+user+'&message='+message;
-			var ajax = new XMLHttpRequest();
-			ajax.open("GET", url);
-			ajax.send();
-		}
-
-	};
-
 	form.send.onclick = function(){
 		if(form.validate()) {
 			document.cookie="name:"+form.name.value;
@@ -118,31 +67,13 @@ var main = function(){
 
 	page.getMessages();
 
-	//scroll-top button
-	(function(){
-		var button = document.getElementById('scroll-top');
-		var scrollTop = function(){
-		  if(window.scrollY >= 5) {
-		    window.scroll(0,window.scrollY-(scrollY/10));
-		    setTimeout(scrollTop,10);
-		  } else window.scroll(0,0);
-		};
-		button.onclick = scrollTop;
+	var manageScrollTopAppearance = page.addScrollTopButton();
 
-		window.onscroll = function(){
-			if(window.scrollY > window.innerHeight*2/3) {
-				button.style.display = 'block';
-			} else {
-				button.style.display = 'none';
-			}
-
-			//show more messages
-			if(document.body.clientHeight < window.scrollY + window.innerHeight) {
-				console.log(document.body.innerHeight,window.scrollY,window.innerHeight);
-				page.getMessages(page.lastId);
-			}
-		};
-	}());
+	//scroll event
+	window.onscroll = function(){
+		manageScrollTopAppearance();
+		page.onScrollLoadMessages();
+	};
 
 	//key binding
 	(function(){
@@ -174,30 +105,26 @@ var main = function(){
 	}());
 
 
-	//registration form
+
+	//login form
 	(function(){
+		var loginLink = document.getElementById('login-link');
+		// var wrapper = document.getElementById('popup-form-wrapper');
+		var container = document.getElementById('login-form-container');
+		var form = document.querySelector('#login-form-container > form');
+		var submit = document.getElementById('login-submit');
 
-		var registerLink = document.getElementById('register-link');
-		var wrapper = document.getElementById('reg-form-wrapper');
-		var container = document.getElementById('reg-form-container');
-		var form = document.querySelector('#reg-form-container > form');
-		var submit = document.getElementById('reg-submit');
-
-		registerLink.onclick = function(){
-			wrapper.style.display='block';
-		};
-
-		wrapper.onclick = function(e){
-			if(e.target ===  this)	this.style.display = 'none';
+		loginLink.onclick = function(){
+			page.renderPopup(container);
 		};
 
 		submit.onclick = function() {
-			wrapper.style.display = 'none';
-			var url = 'modules/registrator.php';
+			page.popupWrapper.style.display = 'none';
+			var url = 'modules/login.php';
 			var postData = "username=" +
-				document.querySelector('input[name="regname"]').value +
-				"&password=" +
-				document.querySelector('input[name="regpass"]').value;
+				document.querySelector('input[name="username"]').value +
+				"&userpass=" +
+				document.querySelector('input[name="userpass"]').value;
 
 			var ajax = new XMLHttpRequest();
 			ajax.open('POST', url);
@@ -205,7 +132,48 @@ var main = function(){
 			ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 			ajax.send(postData);
 
+			ajax.onload = function(){
+				var res = JSON.parse(ajax.responseText);
+				if(res && res.status) {
+					console.log(res);
+					location.reload();
+				}
+			};
+
 		};
+
+
+
+	}());
+
+	//registration form
+	(function(){
+
+		var registerLink = document.getElementById('register-link');
+		// var wrapper = document.getElementById('popup-form-wrapper');
+		var container = document.getElementById('reg-form-container');
+		var form = document.querySelector('#reg-form-container > form');
+		var submit = document.getElementById('reg-submit');
+
+		registerLink.onclick = function(){
+			page.renderPopup(container);
+		};
+		//
+		// submit.onclick = function() {
+		// 	page.popupWrapper.style.display = 'none';
+		// 	var url = 'modules/registrator.php';
+		// 	var postData = "username=" +
+		// 		document.querySelector('input[name="regname"]').value +
+		// 		"&password=" +
+		// 		document.querySelector('input[name="regpass"]').value;
+		//
+		// 	var ajax = new XMLHttpRequest();
+		// 	ajax.open('POST', url);
+		//
+		// 	ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		// 	ajax.send(postData);
+		//
+		// };
 
 	}());
 
