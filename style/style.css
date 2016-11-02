@@ -1,7 +1,13 @@
+.base-colors,
+body,
+form input,
+form textarea,
+form #send-button {
+  color: #0099FF;
+  background-color: #000000;
+}
 body {
   font-family: sans-serif;
-  color: #09F;
-  background-color: #000;
 }
 #logo {
   color: white;
@@ -31,7 +37,7 @@ body {
   width: 40%  ;
   padding: 20px;
   margin: 10px auto;
-  border: 2px dashed #09F;
+  border: 2px dashed #0099FF;
 }
 #message-board .message-text {
   margin: 10px;
@@ -51,15 +57,12 @@ form textarea,
 form #send-button {
   display: block;
   padding: 5px;
-  color: #09F;
-  background-color: #000;
-  border: 2px solid #09F;
+  border: 2px solid #0099FF;
 }
 form div.wrapper {
   border: 2px solid blue;
   padding: 10px 10px;
   margin: 0px;
-  /*border: 0px;*/
   display: table;
   width: 100%;
 }
@@ -89,12 +92,10 @@ form div.wrapper div.left-side #send-button:hover {
 form div.wrapper div.right-side {
   display: table-cell;
   padding: 0 12px 0 10px;
-  /*width: 220px;*/
 }
 form div.wrapper div.right-side #message-field {
   width: 100%;
   height: 57px;
-  /*margin: 0;*/
 }
 #scroll-top {
   position: fixed;
@@ -128,14 +129,14 @@ form div.wrapper div.right-side #message-field {
 #register-link:hover,
 #login-link:hover {
   margin: 8px 0;
-  border: 2px dashed #09F;
+  border: 2px dashed #0099FF;
 }
 #popup-form-wrapper {
   position: fixed;
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: #000;
+  background-color: #000000;
   display: none;
 }
 #reg-form-container,
@@ -143,7 +144,7 @@ form div.wrapper div.right-side #message-field {
   display: none;
   margin: 10% auto;
   width: 300px;
-  border: 2px solid #09f;
+  border: 2px solid #0099FF;
   background-color: #212121;
 }
 #reg-form-container form,
@@ -161,7 +162,7 @@ form div.wrapper div.right-side #message-field {
 #login-submit {
   width: 100px;
   padding: 10px;
-  border: 2px solid #09f;
+  border: 2px solid #0099FF;
   cursor: pointer;
 }
 #reg-submit:hover,
