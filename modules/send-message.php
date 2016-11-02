@@ -1,10 +1,9 @@
 <?php
   include '../lib.php';
-
+  session_start();
+  error_log($_SESSION['username']);
   # Check for $_GET request to send new message. If ok, write it to the DB
-  if(isset($_GET['user']) && isset($_GET['message'])){
-    write_message($_GET['user'],$_GET['message'], $page);
-  }
+  isset($_GET['message']) && write_message((isset($_SESSION['username']) ? $_SESSION['username'] : 'Guest'), $_GET['message'], $page);
 
   function write_message($user, $message, $page){
     $query = 'INSERT INTO `messages` (`user`,`message`) VALUES  (\''.$user.'\',\''.$message.'\')';

@@ -47,11 +47,10 @@ var page = {
     }
   },
 
-  sendMessage: function(user, message) {
+  sendMessage: function(message) {
     message = message.replace(/[,-_.!~*'()]/g, '\\$&');
-    user = encodeURIComponent(user);
     message = encodeURIComponent(message);
-    var url = 'modules/send-message.php?user='+user+'&message='+message;
+    var url = 'modules/send-message.php?message='+message;
     var ajax = new XMLHttpRequest();
     ajax.open("GET", url);
     ajax.send();
@@ -109,6 +108,11 @@ var page = {
     ajax.onload = function(){
       location.reload();
     };
+  },
+
+  reloadMessageBoard: function(){
+    document.getElementById('message-board').innerHTML = '';
+    this.getMessages();
   }
 
 };

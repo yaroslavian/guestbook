@@ -2,13 +2,13 @@
 ////
 var main = function(){
 	var form = {
-					name: document.getElementById('name-field'),
+					// name: document.getElementById('name-field'),
 					message: document.getElementById('message-field'),
 					send: document.getElementById('send-button'),
 					validate: function(){
 						//validate name
-						var nameIsValid = this.name.value && this.name.value.length > 1 && this.name.value.length < 30 &&
-						/^[a-zA-Zа-яА-Я0-9 _\.]+$/.test(this.name.value);
+						// var nameIsValid = this.name.value && this.name.value.length > 1 && this.name.value.length < 30 &&
+						// /^[a-zA-Zа-яА-Я0-9 _\.]+$/.test(this.name.value);
 
 						//validate message
 						(function(){
@@ -17,16 +17,13 @@ var main = function(){
 								this.message.value = text.slice(0, 100);
 							}
 						}.call(this));
+
 						var messageIsValid = !!this.message.value;
 
 						//highlighting
-						if(!nameIsValid) this.name.style.borderColor = "red";
-						else this.name.style.borderColor = "#09F";
+						this.message.style.borderColor = !messageIsValid ? "red" : "#09F";
 
-						if(!messageIsValid) this.message.style.borderColor = "red";
-						else this.message.style.borderColor = "#09F";
-
-						if( nameIsValid && messageIsValid) {
+						if(messageIsValid) {
 							this.setActive();
 							return true;
 						} else {
@@ -41,27 +38,22 @@ var main = function(){
 					setPassive : function(){
 						!this.send.classList.contains('passive') && this.send.classList.add('passive');
 					},
-					clear: function (){
-						this.name.value = this.message.value = '';
-						this.setPassive();
-					},
+
 					clearMessage: function (){
 						this.message.value = '';
 						this.setPassive();
-					},
-
+					}
 	}
 
-	form.name.oninput = function(){ form.validate(); };
+	// form.name.oninput = function(){ form.validate(); };
 	form.message.oninput = function(){ form.validate(); };
 
 	form.send.onclick = function(){
 		if(form.validate()) {
-			document.cookie="name:"+form.name.value;
-			page.sendMessage(form.name.value, form.message.value);
+			// document.cookie="name:"+form.name.value;
+			page.sendMessage(form.message.value);
 			form.clearMessage();
-			document.getElementById('message-board').innerHTML = '';
-			page.getMessages();
+			page.reloadMessageBoard();
 		}
 	};
 
@@ -83,28 +75,16 @@ var main = function(){
 		formDOM.onkeypress = function(e){
 			// Send data on press Ctrl+Enter if the form is valid
 			if(e.keyCode===10 && e.ctrlKey && form.validate()) {
-				document.cookie="name:"+form.name.value;
-				page.sendMessage(form.name.value, form.message.value);
+				// document.cookie="name:"+form.name.value;
+				page.sendMessage(form.message.value);
 				form.clearMessage();
-				document.getElementById('message-board').innerHTML = '';
-				page.getMessages();
+				page.reloadMessageBoard();
 			}
 		};
 	}());
 
-	//cookies and focus
-	(function(){
-		// form.name.value = document.cookie
-		console.log(document.cookie);
-		if(document.cookie){
-			var name = document.cookie.split(':')[1];
-			form.name.value = name;
-			form.message.focus();
-		} else { form.name.focus(); };
-
-	}());
-
-
+	//focus
+	form.message.focus();
 
 	//login form
 	(function(){

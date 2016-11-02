@@ -24,7 +24,9 @@
       <form autocomplete="off">
         <div class="wrapper">
           <div class="left-side">
-            <input id="name-field" name="user" type="text" placeholder="User" />
+            <?php
+              echo '<div id="name-field">'.(isset($_SESSION['username']) ? $_SESSION['username'] : 'Guest').'</div>';
+            ?>
             <div id="send-button" class="passive" >Send message</div>
           </div>
           <div class="right-side">
