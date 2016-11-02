@@ -1,7 +1,17 @@
+//Variables
+
+@base-color: #0099FF;
+@base-background: #000000;
+@base-border: 2px solid @base-color;
+
+.base-colors {
+	color: @base-color;
+	background-color: @base-background;
+}
+
 body {
+  &:extend(.base-colors);
   font-family: sans-serif;
-  color: #09F;
-  background-color: #000;
 }
 
 #logo {
@@ -55,14 +65,11 @@ body {
 }
 
 form {
-  //width: 100%;
 	input, textarea, #send-button {
+		&:extend(.base-colors);
 		display: block;
-		//margin: 10px;
 		padding: 5px;
-		color: #09F;
-		background-color: #000;
-		border: 2px solid #09F;
+		border: @base-border;
 	}
 
   div.wrapper {
@@ -70,7 +77,6 @@ form {
 
     padding: 10px 10px;
     margin: 0px;
-    /*border: 0px;*/
     display: table;
     width: 100%;
 
@@ -81,7 +87,6 @@ form {
       padding: 0;
 
       #name-field {
-        // width: 185px;
         display: block;
         margin: 0 0 10px 0;
       }
@@ -106,11 +111,9 @@ form {
     div.right-side {
       display: table-cell;
       padding: 0 12px 0 10px;
-      /*width: 220px;*/
       #message-field {
         width: 100%;
         height: 57px;
-        /*margin: 0;*/
       }
     }
   }
@@ -165,7 +168,7 @@ form {
   display: none;
   margin: 10% auto;
   width: 300px;
-  border: 2px solid #09f;
+  border: @base-border;
   background-color: #212121;
 
   form {
@@ -186,7 +189,7 @@ form {
 #reg-submit, #login-submit {
   width: 100px;
   padding: 10px;
-  border: 2px solid #09f;
+  border: @base-border;
   cursor: pointer;
   &:hover {
     background-color: lime;
