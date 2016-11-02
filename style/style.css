@@ -37,7 +37,7 @@ body {
   width: 40%  ;
   padding: 20px;
   margin: 10px auto;
-  border: 2px dashed #09F;
+  border: 2px dashed #0099FF;
 }
 #message-board .message-text {
   margin: 10px;
@@ -129,14 +129,14 @@ form div.wrapper div.right-side #message-field {
 #register-link:hover,
 #login-link:hover {
   margin: 8px 0;
-  border: 2px dashed #09F;
+  border: 2px dashed #0099FF;
 }
 #popup-form-wrapper {
   position: fixed;
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: #000;
+  background-color: #000000;
   display: none;
 }
 #reg-form-container,
