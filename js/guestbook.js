@@ -95,11 +95,37 @@ var main = function(){
 		var submit = document.getElementById('login-submit');
 
 		submit.onclick = function() {
-			container.style.display = 'none';
-			page.popupWrapper.style.display = 'none';
 
-			//validate
+			//render loading screen
+			// var loadingScreen;
+			var loadingInteraval;
 
+			(function(){
+				container.style.display = 'none';
+				// page.popupWrapper.style.backgroundColor = '#00F';
+				//show loading
+				loading = (function(){
+					var loading = document.createElement('div');
+						loading.style.width = loading.style.height = "100px";
+						loading.style.backgroundColor = "red";
+						loading.style.margin = "auto";
+						loading.style.borderRadius = "50px";
+						loadingInteraval = setInterval(function(){
+								// console.log(loading);
+							loading;
+							var i, color='#';
+							for(i=0;i<6;i++) {
+								color += Math.floor(Math.random()*10);
+							}
+							loading.style.backgroundColor = color;
+							console.log(color, loading);
+						},250);
+					return loading;
+				}())
+
+				page.popupWrapper.appendChild(loading);
+
+			}());
 
 			var url = 'modules/login.php';
 			var postData = "username=" +
@@ -113,12 +139,14 @@ var main = function(){
 			ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 			ajax.send(postData);
 
-			ajax.onload = function(){
+			ajax.onload = function() {
 				var res = JSON.parse(ajax.responseText);
-				if(res && res.status) {
-					console.log(res);
-					location.reload();
-				}
+					if(res && res.status) location.reload();
+					else {
+						loading.style.display = "none";
+						page.popupWrapper.style.display = "none";
+						//here should be also an error message for user
+					}
 			};
 
 		};
@@ -126,8 +154,6 @@ var main = function(){
 		loginLink && (loginLink.onclick = function(){
 			page.renderPopup(container);
 		});
-
-
 
 	}());
 
