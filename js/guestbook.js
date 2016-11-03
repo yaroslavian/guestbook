@@ -97,6 +97,10 @@ var main = function(){
 		submit.onclick = function() {
 			container.style.display = 'none';
 			page.popupWrapper.style.display = 'none';
+
+			//validate
+
+
 			var url = 'modules/login.php';
 			var postData = "username=" +
 				document.querySelector('input[name="username"]').value +
@@ -136,18 +140,34 @@ var main = function(){
 		var form = document.querySelector('#reg-form-container > form');
 		var submit = document.getElementById('reg-submit');
 
+		var login = document.querySelector('input[name="regname"]');
 		var pass = document.querySelector('input[name="regpass"]');
 		var passConfirm = document.querySelector('input[name="regpass1"]');
 
+		//verify
+		login.oninput = function(){
+		 	if(this.value.match(/^[a-zA-Z0-9\_\.\@\$\']{3,20}$/)) {
+				this.style.borderColor = "#0F0";
+			} else {
+				this.style.borderColor = "#F00";
+			}
+		};
+
+		pass.oninput = passConfirm.oninput = function(){
+			console.log(this.value);
+			if(this.value.match(/(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).*/)) {
+				this.style.borderColor = "#0F0";
+			} else {
+				this.style.borderColor = "#F00";
+			}
+		};
+
 		submit.onclick = function() {
-			if(pass.value === passConfirm.value){
+			if(pass.value === passConfirm.value) {
 				container.style.display = 'none';
 				page.popupWrapper.style.display = 'none';
 				var url = 'modules/registrator.php';
-				var postData = "username=" +
-					document.querySelector('input[name="regname"]').value +
-					"&password=" +
-					document.querySelector('input[name="regpass"]').value;
+				var postData = "username=" + login.value +	"&password=" + pass.value;
 
 				var ajax = new XMLHttpRequest();
 				ajax.open('POST', url);
