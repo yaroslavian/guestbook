@@ -23,29 +23,27 @@
 <?php
 // Additional JS variables;
 echo '<script type="text/javascript">;
-  page.setRemoveButton = function(parent){
-    var button = document.createElement(\'div\');
-    button.style.width = button.style.height = \'15px\';
-    button.style.backgroundColor = \'red\';
-    button.style.border = \'2px solid white\';
-    button.style.display = \'inline-block\';
-    button.style.float = \'right\';
+  page.deleMessage = function(messageId) {
+    //id
+    var url = "modules/delete-message.php?messageid="+messageId;
+    var ajax = new XMLHttpRequest();
+    ajax.open("GET", url);
+    ajax.send();
+  };
 
+  page.setRemoveButton = function(parent) {
+    var messageId = parseInt(parent.getElementsByClassName(\'message-id\')[0].innerHTML);
+    var button = document.createElement(\'div\');
+    button.classList.add(\'delete-message\');
+
+    var that=this;
     button.onclick = function(){
-      // removeMessage();
+      that.deleMessage(messageId);
       this.parentNode.style.display="none";
     };
     parent.insertBefore(button, parent.childNodes[0]);
   };
 
-  page.additions = {
-    renderMessages : function(parent){
-      console.log(\'!!!\');
-      // console.log();
-
-      this.setRemoveButton(parent);
-    }
-  };
 </script>';
 ?>
 

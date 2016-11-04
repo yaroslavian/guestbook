@@ -34,13 +34,11 @@ var page = {
       (function(){
           var div = document.createElement('div');
           div.classList.add('message-block');
-          div.innerHTML =	'<div>'+messages[i]['id']+'</div>' +
+          div.innerHTML =	'<div class="message-id">'+messages[i]['id']+'</div>'+
                           messages[i]['user'] + ':<br /><br />' +
                           messages[i]['message'] + '<br /><br />' +
                           messages[i]['date'];
-          if(that.additions && that.additions.renderMessages) {
-            that.additions.renderMessages.call(that, div);
-          }
+          that.setRemoveButton && that.setRemoveButton(div);
 
           parent.appendChild(div);
       }());
@@ -82,8 +80,7 @@ var page = {
     document.body.appendChild(button);
 
     return function(){
-      if(window.scrollY > window.innerHeight*2/3) button.style.display = 'block';
-      else button.style.display = 'none';
+      button.style.display = (window.scrollY > window.innerHeight*2/3) ? 'block' : 'none';
     };
   },
 
@@ -113,7 +110,7 @@ var page = {
   reloadMessageBoard: function(){
     document.getElementById('message-board').innerHTML = '';
     this.getMessages();
-  }
+  },
 
 };
 
