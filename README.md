@@ -21,18 +21,10 @@ Simple **PHP** **AJAX** guestbook.
   ```shell
     cd installation
   ```
-  
-3. Edit file __install.sh__. Replace the test values of the database options with real ones as shown below.
-  
-  ```shell
-    DB_SERVER=real_database_server
-    DB_NAME=real_database_name
-    DB_USER=real_database_user
-    DB_PASS=real_database_password
-  ```
-  
-4. Execute __install.sh__ file from current directory.
+    
+3. Run __install.sh__ file from current directory.
   
   ```shell
     ./install.sh
   ```
+4. Enter correct database access data when the script will ask you for input.
