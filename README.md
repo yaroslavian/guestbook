@@ -27,4 +27,4 @@ Simple **PHP** **AJAX** guestbook.
   ```shell
     ./install.sh
   ```
-4. Enter **correct database access data** when the script will ask you for input.
+4. Follow installation instructions.
