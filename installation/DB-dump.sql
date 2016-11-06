@@ -17,7 +17,7 @@ INSERT INTO `messages` (`user`,`message`)
     ('Mr Mister', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.');
 
 
-#CREATE AND FILL USER TABLE
+#CREATE USER TABLE
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
@@ -26,10 +26,3 @@ CREATE TABLE `users` (
   `reg_date` timestamp,
   PRIMARY KEY(`id`)
 );
-
-#insert test values
-INSERT INTO `users` (`username`, `password`)
-  VALUES
-    ('admin', '54321'),
-    ('user', '12345'),
-    ('user2', '11111');
