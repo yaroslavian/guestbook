@@ -139,7 +139,8 @@ var main = function(){
 			ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 			ajax.send(postData);
 
-			ajax.onload = function() {
+			ajax.onload = function(e) {
+				e && (document.body.innerHTML = '<h2>Service is temporary unavailable. Try again later.</h2>');
 				var res = JSON.parse(ajax.responseText);
 					if(res && res.status) location.reload();
 					else {

@@ -15,7 +15,10 @@ var page = {
     ajax.send();
 
     var that = this;
-    ajax.onload = function() {
+
+    ajax.onload = function(e) {
+
+	  e && (document.body.innerHTML = '<h2>Service is temporary unavailable. Try again later.</h2>');
       res = JSON.parse(ajax.responseText);
 
       messages = res['messages'];
