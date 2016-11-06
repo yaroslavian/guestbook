@@ -140,14 +140,19 @@ var main = function(){
 			ajax.send(postData);
 
 			ajax.onload = function(e) {
-				e && (document.body.innerHTML = '<h2>Service is temporary unavailable. Try again later.</h2>');
-				var res = JSON.parse(ajax.responseText);
-					if(res && res.status) location.reload();
-					else {
-						loading.style.display = "none";
-						page.popupWrapper.style.display = "none";
-						//here should be also an error message for user
-					}
+				try{
+					var res = JSON.parse(ajax.responseText);
+				} catch (e) {
+					document.body.innerHTML = '<h2>Service is temporary unavailable. Try again later.</h2>';
+	        console.log(e);
+				}
+
+				if(res && res.status) location.reload();
+				else {
+					loading.style.display = "none";
+					page.popupWrapper.style.display = "none";
+					//here should be also an error message for user
+				}
 			};
 
 		};

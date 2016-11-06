@@ -16,10 +16,14 @@ var page = {
 
     var that = this;
 
-    ajax.onload = function(e) {
-
-	  e && (document.body.innerHTML = '<h2>Service is temporary unavailable. Try again later.</h2>');
-      res = JSON.parse(ajax.responseText);
+    ajax.onload = function() {
+      try {
+        res = JSON.parse(ajax.responseText);
+      } catch(e) {
+        //This case is actually triggered when database is unreachable
+        document.body.innerHTML = '<h2>Service is temporary unavailable. Try again later.</h2>';
+        console.log(e);
+      }
 
       messages = res['messages'];
 
