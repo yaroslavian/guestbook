@@ -8,7 +8,12 @@ class Page {
 
   public function query_db($query){
     $mysqli = new mysqli($this->db['server'], $this->db['user'], $this->db['pass'], $this->db['name']);
-    $res = $mysqli->query($query);
+    if($mysqli->connect_errno) {
+        echo 'ERROR: DATABASE IS UNREACHABLE! ';    
+    } else if (!($res = $mysqli->query($query))) {
+        echo 'ERROR: CAN NOT EXECUTE THIS QUERY! ---> QUERY: '.$query.' ---> ERROR: '.$mysqli->errno;
+    }
+
     return $res;
   }
 
