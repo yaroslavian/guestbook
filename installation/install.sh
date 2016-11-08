@@ -17,7 +17,7 @@ echo "<?php
 			'pass' => '$DB_PASS'
 		)
 	);
-?>" > ../config1.php
+?>" > ../config.php
 
 
 #read -p "ADMIN LOGIN FOR GUESBOOK: " ADMIN_LOGIN
