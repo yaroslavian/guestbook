@@ -34,6 +34,7 @@ do
 	read -p "CONFIRM PASSWORD: " ADMIN_PASS_CONFIRM
 done
 
-mysql -u $DB_USER -p$DB_PASS -e "INSERT INTO \`users\`(\`username\`, \`password\`) VALUES ('$ADMIN_LOGIN', '$ADMIN_PASS')" $DB_NAME
+PASS_HASH="$(php -r "echo password_hash('$ADMIN_PASS', PASSWORD_DEFAULT);")"
+mysql -u $DB_USER -p$DB_PASS -e "INSERT INTO \`users\`(\`username\`, \`password\`) VALUES ('$ADMIN_LOGIN', '$PASS_HASH')" $DB_NAME
 
 echo "Installtion complete! :)"
