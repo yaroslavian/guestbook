@@ -8,7 +8,7 @@ include '../lib.php';
 
 function register_user($name, $pass, $page) {
 
-#validation and sanding query
+#validation and sending query
   preg_match('/^[a-zA-Z0-9\_\.\@\$\']{3,20}$/', $name) &&
     preg_match('/(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).*/', $pass) &&
       $hash = password_hash($pass, PASSWORD_DEFAULT);
