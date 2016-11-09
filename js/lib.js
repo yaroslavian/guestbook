@@ -42,9 +42,9 @@ var page = {
           var div = document.createElement('div');
           div.classList.add('message-block');
           div.innerHTML =	'<div class="message-id">'+messages[i]['id']+'</div>'+
-                          messages[i]['user'] + ':<br /><br />' +
+                          '<div class="message-nickname">' + messages[i]['user'] + '</div><br />' +
                           messages[i]['message'] + '<br /><br />' +
-                          messages[i]['date'];
+                          '<div class="message-date">'+messages[i]['date']+'</div>';
           that.setRemoveButton && that.setRemoveButton(div);
 
           parent.appendChild(div);

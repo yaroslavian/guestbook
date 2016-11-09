@@ -45,6 +45,24 @@ body {
 		padding: 20px;
 		margin: 10px auto;
 		border: 2px dashed @base-color;
+
+		.message-id {
+			display: none;
+		}
+
+		.message-nickname {
+			border-right: 4px double @base-color;
+			border-left: 4px double @base-color;
+			padding: 0 5px;
+
+			display: inline-block;
+			margin-bottom: 10px;
+		}
+
+		.message-date {
+			font-size: 10px;
+			color: grey;
+		}
 	}
 
 	.message-text {

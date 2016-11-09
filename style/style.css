@@ -39,6 +39,20 @@ body {
   margin: 10px auto;
   border: 2px dashed #0099FF;
 }
+#message-board .message-block .message-id {
+  display: none;
+}
+#message-board .message-block .message-nickname {
+  border-right: 4px double #0099FF;
+  border-left: 4px double #0099FF;
+  padding: 0 5px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+#message-board .message-block .message-date {
+  font-size: 10px;
+  color: grey;
+}
 #message-board .message-text {
   margin: 10px;
 }
