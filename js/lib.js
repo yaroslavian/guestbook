@@ -25,12 +25,13 @@ var page = {
         console.log(e);
       }
 
-      messages = res['messages'];
-
-      that.lastId = messages[messages.length-1]['id'];
-
-      //render
-      that.renderMessages(messages);
+      if(messages = res['messages']) {
+        if(messages[messages.length-1]) {
+          that.lastId = messages[messages.length-1]['id'];
+          //render
+          that.renderMessages(messages);
+        }
+      }
     };
   },
 
