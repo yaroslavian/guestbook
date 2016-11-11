@@ -7,6 +7,7 @@ Simple **PHP** **AJAX** guestbook.
 - php5+
 - MySQL
 - Webserver
+- _\*nix based OS is required for installation script._
 
 ##Installation steps:
 
