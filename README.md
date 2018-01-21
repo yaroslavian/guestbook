@@ -3,13 +3,13 @@ Simple **PHP** **AJAX** guestbook.
 
 :warning: _**Incomplete. In development.**_ :warning:
 
-##Installation requirements:
+## Installation requirements:
 - php5+
 - MySQL
 - Webserver
 - _\*nix based OS is required for installation script._
 
-##Installation steps:
+## Installation steps:
 
 1. Create DB in MySQL.
   
